@@ -1,1 +1,4 @@
-# SurtidorLaTerminal
+const SUPABASE_URL = 'https://zbbtiqjvgpcsguahrqxc.supabase.co';
+
+
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpiYnRpcWp2Z3Bjc2d1YWhycXhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3OTk5MDAsImV4cCI6MjEwMTM3NTkwMH0.8rGVAZiXOIiJqtkUc4ek7MFFnLpSY7JxZmzxBOqAaIE';

@@ -1,0 +1,314 @@
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+:root {
+    --background: #f4f7f5;
+    --card: #ffffff;
+    --text-primary: #17211b;
+    --text-secundary: #647067;
+    --primary: #157347;
+    --primary-dark: #0e5634;
+    --primay-light: #e8f5ee;
+    --border: #dfe7e2;
+    --shadow: 0 24px 60px rgba(24, 54, 38, 0.12);
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-primary);
+    background: radial-gradient(circle at top left, #dff3e7 0, transparent 35%),
+    var(--background);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url('images/background-pattern.svg');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: cover;
+    opacity: 0.45;
+    z-index: 0;
+}
+
+.calculator-container {
+    position: relative;
+    z-index: 1;
+}
+
+.calculator-container { 
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px
+}
+
+.calculator-card{ 
+    width: 100%;
+    max-width: 900px;
+    padding: 48px;
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius:24px;
+    box-shadow: var(--shadow);
+}
+
+.header {
+    margin-bottom:36px;
+}
+
+.eyebrown {
+    margin-bottom:10px;
+    color: var(--primary);
+    font-size:14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.h1 {
+    margin-bottom: 14px;
+    font-size:clamp(32px, 5vw, 48px);
+    line-height:1.1
+}
+
+.description {
+    max-width: 620px;
+    color: var(--text-secundary);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.calculator-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 16px;
+    padding: 24px;
+    margin-bottom: 38px;
+    background-color: #f8faf9;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: px;
+    font-weight:700;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 8px 12px;
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 18px 12px;
+  font-size: 1.05rem;
+  background: transparent;
+}
+.input-unit {
+  color: var(--primary-dark);
+  font-weight: 700;
+  padding: 10px 14px;
+  background: #f0f7f1;
+  border-radius: 14px;
+}
+
+.input-wrapper span {
+    padding: 0 16px;
+    color: var(--text-secundary);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.results-heading p {
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+
+button {
+     min-height: 50px;
+     padding: 0 24px;
+     color: white;
+     background-color: var(--primary);
+     border: none;
+     border-radius: 12px;
+     cursor: pointer;
+     font-size: 15px;
+     font-weight: 700;
+     transition: background-color 0.2s ease,
+     transform 0.2s ease,
+     box-shadow 0.2s ease; 
+}
+
+button:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 10px 20px rgba(21, 115, 71, 0.22);
+    transform: translateY(-2px);
+}
+
+button:active { 
+    transform: translateY(0);
+}
+
+.results-heading {
+    margin-bottom: 20px;
+}
+
+.results-heading h2 {
+    font-size: 26px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.result-item {
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    background-color: #f8faf9;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.result-item span {
+    color: var(--text-secundary);
+    font-size: 13px;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.result-item strong {
+    font-size: 20px;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.result-item.highlight {
+    color: white;
+    background: linear-gradient(
+        134deg,
+        var(--primary),
+        var(--primary-dark)
+    )
+}
+
+.result-item.highlight span {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.result-item.highlight strong {
+    color: white;
+}
+
+@media (max-width: 700px) {
+    .calculator-card {
+        position: relative;
+        background-color: var(--card);
+        background-image: radial-gradient(circle at top left, rgba(21, 115, 71, .08), transparent 35%),
+                          url('images/background-pattern.svg');
+        background-repeat: no-repeat;
+        background-position: top right;
+        background-size: 220px;
+    }
+
+    .calculator-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: end;
+        gap: 20px;
+        padding: 28px;
+    }
+
+    button {
+        width: 100%
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.result-item {
+    position: relative;
+    min-height: 140px;
+    padding: 24px;
+    background: #f8faf9;
+    border: 1px soliid var(--border);
+    border-radius: 20px;
+    display: grid;
+    gap: 10px;
+}
+
+.result-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(21, 115, 71, 0.15);
+    color: var(--primary);
+    font-size: 22px;
+}
+
+.result-icon-highlight {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    font-size: 22px;
+}
+
+.result-item span {
+    font-size: 0.95rem;
+    color: var(--text-secundary);
+}
+
+.result-value {
+    display: block;
+    margin-top: 8px;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.result-item.highlight {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark))
+}
+.result-item.highlight .result-value,
+.result-item.highlight span {
+  color: #fff;
+}

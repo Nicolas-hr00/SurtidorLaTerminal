@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page description">
+    <meta name="author" content="Your Name">
+
+   <title>Calculadora de Tarifas</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+
+<body>
+     <main class="calculator-container">
+        <section class="calculator-card">
+
+        <div class="header">
+            <p class="eyebrown">Calculadora GNV</p>
+            <h1>Calculadora de Tarifas</h1>
+            <p class="description">Calcula cuanto puedes ahorrar utilizando GNV en lugar de gasolina</p>
+        </div>
+
+        <form id="calculator-form" class="calculator-form">
+            <div class="input-group">
+                <label for = "km"> Kilometros  mensuales </label>
+                <div class="input-wrapper">
+                    <input
+                    type="number"
+                    id="km"
+                    name="km"
+                    placeholder="ejemplo: 5000"
+                    min="0"
+                    required
+                    >
+                    <span class="input-unit">km</span>
+                </div>
+            </div>
+
+            <!-- <input id="km" type="number" placeholder="Ingrese los Kilometros"></input> -->
+            <!-- <button onclick= "handleCalculate()"> Calcular Ahorro</button> -->
+            <button type="button" onclick="handleCalculate()"> Calcular Ahorro</button>
+        </form>
+
+
+
+        <section id="results" class="results">
+            <div class="results-heading">
+                <p>Estimacion</p>
+                <h2>Resultado de ahorro</h2>
+            </div>
+
+            <div class="results-grid">
+
+                <article class="result-item">
+                    <div class="result-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <span>Costo gasolina mensual</span>
+                    <strong id="gasolina-mensual">0.00</strong>
+                </article>
+
+                <article class="result-item">
+                    <div class="result-icon">
+                        <i class="fas fa-droplet"></i>
+                    </div>
+                    <span>Costo GNV mensual</span>
+                    <strong id="gnv-mensual">0.00</strong>
+                </article>
+
+                <article class="result-item highlight">
+                    <div class="result-icon-highlight">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <span>Ahorro mensual</span>
+                    <strong id="ahorro-mensual">0.00</strong>
+                </article>
+
+                <article class="result-item">
+                    <div class="result-icon">
+                        <i class="fas fa-calendar-days"></i>
+                    </div>
+                    <span>Ahorro anual</span>
+                    <strong id="ahorro-anual">0.00</strong>
+                </article>
+
+                <article class="result-item">
+                    <div class="result-icon">
+                        <i class="fas fa-percent"></i>
+                    </div>
+                    <span>Porcentaje de ahorro</span>
+                    <strong id="porcentaje-ahorro">0.00</strong>
+                </article>
+
+                <article class="result-item">
+                    <div class="result-icon">
+                        <i class="fas fa-hourglass-end"></i>
+                    </div>
+                    <span>Recuperación de inversión</span>
+                    <strong id="meses-recuperacion">0.00</strong>
+                </article>
+
+            </div>
+      </section>
+</main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>

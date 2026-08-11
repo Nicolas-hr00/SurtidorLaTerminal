@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Decorative GNV background">
+  <rect width="800" height="600" fill="#f7fbf8"/>
+  <circle cx="680" cy="140" r="180" fill="#dff3e7" fill-opacity="0.7"/>
+  <circle cx="180" cy="470" r="140" fill="#eaf8f0"/>
+  <path d="M220 120c40-55 110-70 160-40 37 23 60 65 60 113 0 65-41 112-101 126-53 12-113-12-135-64-14-34-11-90 16-135z" fill="#157347" fill-opacity="0.14"/>
+  <path d="M520 220c30 0 55 25 55 55s-25 55-55 55-55-25-55-55 25-55 55-55Z" fill="#0e5634" fill-opacity="0.12"/>
+  <path d="M500 200h40v160h-40z" fill="#157347" fill-opacity="0.16"/>
+  <path d="M485 235h70v30h-70z" fill="#157347" fill-opacity="0.22"/>
+  <path d="M420 320c24-30 66-39 100-23 26 12 44 39 44 70 0 23-9 44-25 59-16 14-36 21-57 21-30 0-58-14-76-37-16-19-24-43-24-67 0-13 3-25 8-37 3-5 10-6 14-2 5 5 7 12 16 16z" fill="#157347" fill-opacity="0.08"/>
+</svg>
