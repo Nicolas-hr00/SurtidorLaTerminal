@@ -23,27 +23,36 @@
             <p class="eyebrown">Calculadora GNV</p>
             <h1>Calculadora de Tarifas</h1>
             <p class="description">Calcula cuanto puedes ahorrar utilizando GNV en lugar de gasolina</p>
+
+            <p class="description-2">Girar la pantalla horizontalmente cuando se utilice en dispositivos móviles.</p>
         </div>
 
         <form id="calculator-form" class="calculator-form">
             <div class="input-group">
-                <label for = "km"> Kilometros  mensuales </label>
+                <label for="calculation-type">Calcular según</label>
+                <select id="calculation-type" name="calculation-type">
+                    <option value="kilometers">Kilómetros mensuales</option>
+                    <option value="liters">Litros mensuales</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="amount" id="amount-label">Kilómetros mensuales</label>
                 <div class="input-wrapper">
                     <input
-                    type="number"
-                    id="km"
-                    name="km"
-                    placeholder="ejemplo: 5000"
-                    min="0"
-                    required
+                        type="number"
+                        id="amount"
+                        name="amount"
+                        placeholder="ejemplo: 5000"
+                        min="0.01"
+                        step="any"
+                        required
                     >
-                    <span class="input-unit">km</span>
+                    <span class="input-unit" id="amount-unit">km</span>
                 </div>
             </div>
 
-            <!-- <input id="km" type="number" placeholder="Ingrese los Kilometros"></input> -->
-            <!-- <button onclick= "handleCalculate()"> Calcular Ahorro</button> -->
-            <button type="button" onclick="handleCalculate()"> Calcular Ahorro</button>
+            <button type="submit">Calcular Ahorro</button>
         </form>
 
 
@@ -104,9 +113,12 @@
                     <strong id="meses-recuperacion">0.00</strong>
                 </article>
 
+                
+
             </div>
       </section>
-</main>
+        </section>
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="main.js"></script>
 

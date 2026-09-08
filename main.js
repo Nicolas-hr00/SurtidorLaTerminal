@@ -3,10 +3,7 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// const currencyFormatter = new Intl.NumberFormat("es-BO", {
-//     style: "currency",
-//     currency: "BOB"
-// });
+
 
 function formatCurrency(value) {
   return 'Bs ' + value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
@@ -36,12 +33,12 @@ async function loadSettings() {
     };
 }
 
-function calculate(km, config) {
-  const gasolinaMensual = (km / config.efficiencyGasoline) * config.priceGasoline;
-  const gnvMensual = (km / config.efficiencyGnv) * config.priceGnv;
+function calculate(amount, calculationType, config) {
+  const gasolinaMensual = calculationType === 'liters' ? amount * config.priceGasoline : (amount/config.efficiencyGasoline) * config.priceGasoline;
+  const gnvMensual = calculationType === 'liters' ? amount * config.priceGnv : (amount / config.efficiencyGnv) * config.priceGnv;
   const ahorroMensual = gasolinaMensual - gnvMensual;
   const ahorroAnual = ahorroMensual * 12;
-  const porcentajeAhorro = gasolinaMensual ? (ahorroMensual / gasolinaMensual) * 100 : 0;
+  const porcentajeAhorro = gasolinaMensual ? (ahorroAnual / gasolinaMensual) * 100 : 0;
   const mesesRecuperacion = ahorroMensual > 0 ? config.conversionCost / ahorroMensual : Infinity;
 
 
@@ -63,17 +60,31 @@ function renderResults(results) {
 
   document.getElementById('ahorro-anual').textContent =  formatCurrency(results.ahorroAnual);
 
-  document.getElementById('porcentaje-ahorro').textContent = formatCurrency(results.porcentajeAhorro) + '%';
+  document.getElementById('porcentaje-ahorro').textContent = formatPercent(results.porcentajeAhorro);
     
   document.getElementById('meses-recuperacion').textContent =
     (isFinite(results.mesesRecuperacion) ? results.mesesRecuperacion.toFixed(1) : '—');
-    }
+  
+  }
 
-    async function handleCalculate() {
-        const km = Number(document.getElementById('km').value);
+function updatedInputLabels () { 
+  const calculationType = document.getElementById('calculation-type').value; 
+  const isLiters = calculationType === 'liters';
+  document.getElementById('amount-label').textContent = isLiters ? 'Litros mensuales' : 'kilometros mensuales';
+  document.getAnimations('amount-unit').textContent = isLiters ? 'L' : 'km';
+  document.getElementById('amount').placeholder = isLiters ? 'ejemplo: 300' : 'ejemplo 5000';
+}
 
-        if (!km || km <= 0) {
-            alert ('Ingresa un valor valido de kilometros.')
+
+    async function handleCalculate(event) {
+      if(event) event.preventDefault();
+
+
+       const calculationType = document.getElementById('calculation-type').value;
+       const amount = Number(document.getElementById('amount').value);
+
+        if (!amount || amount<= 0) {
+            alert (calculationType === 'liters' ? 'Ingresa unvalor válido de litros.' : 'Ingresa un valor válido de kilómetros.');
             return;
         }
 
@@ -83,6 +94,11 @@ function renderResults(results) {
             return;
         }
 
-        const results = calculate(km,config);
+        const results = calculate(amount, calculationType, config);
         renderResults(results);
     }
+
+
+    document.getElementById('calculation-type').addEventListener('change', updatedInputLabels);
+    document.getElementById('calculator-form').addEventListener('submit', handleCalculate);
+    updatedInputLabels();

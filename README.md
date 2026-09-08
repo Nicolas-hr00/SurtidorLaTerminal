@@ -1,4 +1,7 @@
-const SUPABASE_URL = 'https://zbbtiqjvgpcsguahrqxc.supabase.co';
+PROJECT URL: https://zbbtiqjvgpcsguahrqxc.supabase.co/
 
 
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpiYnRpcWp2Z3Bjc2d1YWhycXhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODU3OTk5MDAsImV4cCI6MjEwMTM3NTkwMH0.8rGVAZiXOIiJqtkUc4ek7MFFnLpSY7JxZmzxBOqAaIE';
+o utilizar esta
+https://zbbtiqjvgpcsguahrqxc.supabase.co/rest/v1/Surtidor
+
+anon key: sb_publishable__kbAtIeQ4k9CKPPWxYtiAQ_4LBAm1tg  

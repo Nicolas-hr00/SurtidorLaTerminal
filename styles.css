@@ -85,10 +85,16 @@ body::before {
     font-size: 17px;
     line-height: 1.6;
 }
+.description-2 {
+    max-width: 620px;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.6;
+}
 
 .calculator-form {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(180px, .7fr) minmax(240px, 1.3fr) auto;
     align-items: end;
     gap: 16px;
     padding: 24px;
@@ -311,4 +317,16 @@ button:active {
 .result-item.highlight .result-value,
 .result-item.highlight span {
   color: #fff;
+}
+
+.input-group select {
+    width: 100%;
+    min-height: 66px;
+    padding: 0 16px;
+    color: var(--text-primary);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    font-size: 1.05rem;
+    outline: none;
 }
