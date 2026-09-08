@@ -5,6 +5,7 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 
 
+// ================================================= Currency and Percentage =================================================
 function formatCurrency(value) {
   return 'Bs ' + value.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 }
@@ -12,19 +13,22 @@ function formatCurrency(value) {
 function formatPercent(value) {
   return value.toFixed(1) + '%';
 }
+// ================================================= ==================================================================================================
 
-async function loadSettings() {
+
+// ================================================= Connecting to the Database =================================================
+async function loadSettings() { 
     const {data, error} = await supabaseClient
-    .from('settings')
-    .select('*')
-    .order('updated_at', {ascending:false})
+    .from('settings') //settings is the name of the database 
+    .select('*') //we are selecting everyting from the table 
+    .order('updated_at', {ascending:false}) 
     .limit(1)
     .maybeSingle()
   if (error || !data) {
-    alert('Supabase error: ' + (error ? error.message : 'no data returned'));
+    alert('Supabase error: ' + (error ? error.message : 'no data returned')); //throwing an error message in case it fails to connect 
   return null;
 }
-    return {
+    return { //these are the variables withing the database table 
        priceGasoline: Number(data.price_gasoline),
        efficiencyGasoline: Number(data.efficiency_gasoline),
        priceGnv: Number (data.price_gnv),
@@ -33,6 +37,10 @@ async function loadSettings() {
     };
 }
 
+// ================================================= End Of the connecting data base  =================================================
+
+
+// ================================================= Making the calculations for the results =================================================
 function calculate(amount, calculationType, config) {
   const gasolinaMensual = calculationType === 'liters' ? amount * config.priceGasoline : (amount / config.efficiencyGasoline) * config.priceGasoline;
   const gnvMensual = calculationType === 'liters' ? amount * config.priceGnv : (amount / config.efficiencyGnv) * config.priceGnv;
@@ -51,6 +59,9 @@ function calculate(amount, calculationType, config) {
         mesesRecuperacion,
     };
 }
+//================================================= End of calculations =================================================\
+
+// ================================================= storing the results =================================================
 function renderResults(results) {
   document.getElementById('gasolina-mensual').textContent = formatCurrency(results.gasolinaMensual);
 
@@ -66,7 +77,9 @@ function renderResults(results) {
     (isFinite(results.mesesRecuperacion) ? results.mesesRecuperacion.toFixed(1) : '—');
   
   }
+// ================================================= END storing the results =================================================
 
+// ================================================= From KM to Liters UI perspective =================================================
 function updateInputLabels() {
   const calculationType = document.getElementById('calculation-type').value;
   const isLiters = calculationType === 'liters';

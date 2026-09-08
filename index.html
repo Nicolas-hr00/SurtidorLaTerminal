@@ -8,13 +8,13 @@
 
    <title>Calculadora de Tarifas</title>
 
-    <!-- CSS -->
+    <!-- CSS Icons --> 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 
-
+<!-- ================================================== Start Titles ======================== -->
 <body>
      <main class="calculator-container">
         <section class="calculator-card">
@@ -27,6 +27,11 @@
             <p class="description-2">Girar la pantalla horizontalmente cuando se utilice en dispositivos móviles.</p>
         </div>
 
+<!-- ================================================ END TITLES =================================================== -->
+
+
+
+<!-- ================================================= Start UI ================================================= -->
         <form id="calculator-form" class="calculator-form">
             <div class="input-group">
                 <label for="calculation-type">Calcular según</label>
@@ -54,9 +59,11 @@
 
             <button type="submit">Calcular Ahorro</button>
         </form>
+<!-- ================================================= End UI================================================= -->
 
 
 
+<!-- ================================================= Start Results ================================================= -->
         <section id="results" class="results">
             <div class="results-heading">
                 <p>Estimacion</p>
@@ -117,8 +124,12 @@
 
             </div>
       </section>
+
+      <!-- ================================================= END Results =================================================  -->
         </section>
     </main>
+
+    <!-- Connecting to the Supabase  -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="main.js"></script>
 
