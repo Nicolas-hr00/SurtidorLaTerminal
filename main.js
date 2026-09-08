@@ -34,11 +34,11 @@ async function loadSettings() {
 }
 
 function calculate(amount, calculationType, config) {
-  const gasolinaMensual = calculationType === 'liters' ? amount * config.priceGasoline : (amount/config.efficiencyGasoline) * config.priceGasoline;
+  const gasolinaMensual = calculationType === 'liters' ? amount * config.priceGasoline : (amount / config.efficiencyGasoline) * config.priceGasoline;
   const gnvMensual = calculationType === 'liters' ? amount * config.priceGnv : (amount / config.efficiencyGnv) * config.priceGnv;
   const ahorroMensual = gasolinaMensual - gnvMensual;
   const ahorroAnual = ahorroMensual * 12;
-  const porcentajeAhorro = gasolinaMensual ? (ahorroAnual / gasolinaMensual) * 100 : 0;
+  const porcentajeAhorro = gasolinaMensual ? (ahorroMensual / gasolinaMensual) * 100 : 0;
   const mesesRecuperacion = ahorroMensual > 0 ? config.conversionCost / ahorroMensual : Infinity;
 
 
@@ -67,12 +67,12 @@ function renderResults(results) {
   
   }
 
-function updatedInputLabels () { 
-  const calculationType = document.getElementById('calculation-type').value; 
+function updateInputLabels() {
+  const calculationType = document.getElementById('calculation-type').value;
   const isLiters = calculationType === 'liters';
-  document.getElementById('amount-label').textContent = isLiters ? 'Litros mensuales' : 'kilometros mensuales';
-  document.getAnimations('amount-unit').textContent = isLiters ? 'L' : 'km';
-  document.getElementById('amount').placeholder = isLiters ? 'ejemplo: 300' : 'ejemplo 5000';
+  document.getElementById('amount-label').textContent = isLiters ? 'Litros mensuales' : 'Kilómetros mensuales';
+  document.getElementById('amount-unit').textContent = isLiters ? 'L' : 'km';
+  document.getElementById('amount').placeholder = isLiters ? 'ejemplo: 300' : 'ejemplo: 5000';
 }
 
 
@@ -83,8 +83,8 @@ function updatedInputLabels () {
        const calculationType = document.getElementById('calculation-type').value;
        const amount = Number(document.getElementById('amount').value);
 
-        if (!amount || amount<= 0) {
-            alert (calculationType === 'liters' ? 'Ingresa unvalor válido de litros.' : 'Ingresa un valor válido de kilómetros.');
+        if (!amount || amount <= 0) {
+          alert(calculationType === 'liters' ? 'Ingresa un valor válido de litros.' : 'Ingresa un valor válido de kilómetros.');
             return;
         }
 
@@ -99,6 +99,6 @@ function updatedInputLabels () {
     }
 
 
-    document.getElementById('calculation-type').addEventListener('change', updatedInputLabels);
+    document.getElementById('calculation-type').addEventListener('change', updateInputLabels);
     document.getElementById('calculator-form').addEventListener('submit', handleCalculate);
-    updatedInputLabels();
+    updateInputLabels();
