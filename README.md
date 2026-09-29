@@ -1,7 +1,3 @@
-PROJECT URL: https://zbbtiqjvgpcsguahrqxc.supabase.co/
+**Goal** – The main goal of the SurtidorLaTerminal project is to showcase the partnership between the gas station and a local mechanic shop to convert vehicles from gasoline (GAS) to natural gas (GNV). This conversion can help customers save up to 70% on fuel costs compared to regular gasoline.
 
-
-o utilizar esta
-https://zbbtiqjvgpcsguahrqxc.supabase.co/rest/v1/Surtidor
-
-anon key: sb_publishable__kbAtIeQ4k9CKPPWxYtiAQ_4LBAm1tg  
+This application is designed to demonstrate to both regular customers and public and private transportation providers how efficient and cost-effective GNV can be as a long-term alternative to traditional gasoline.
