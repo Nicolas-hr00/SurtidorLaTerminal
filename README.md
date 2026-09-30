@@ -2,6 +2,15 @@
 
 This application is designed to demonstrate to both regular customers and public and private transportation providers how efficient and cost-effective GNV can be as a long-term alternative to traditional gasoline.
 
+HOW TO USE IT 
+The user can change how many KM or Liters he/she as he likes. Once the user inputs the value, the calculator will come up with the following results 
+
+Monthly GAS cost
+Monthly GNV cost
+Monthly savings
+Annual savings
+Percentage saved
+Time required to recover the initial investment
 
 Phase 1 
 Since my goal is to create an application where users can input the kilometers (KM) driven or liters of GAS used and calculate the savings they could achieve by using GNV instead of GAS, the application needs to be simple, accessible, and compatible with any mobile device. For this reason, I decided to develop the application using HTML, CSS, and JavaScript. A web application makes it easy for users to access the tool from any device without having to install additional software.
@@ -11,5 +20,5 @@ Since GAS prices are subsidized by the government, the prices are not expected t
 
 Supabase allows me to use PostgreSQL to create queries containing all the data needed for the application. It also provides a user-friendly interface, making it easy for staff to access and update the table values in real time.
 
-Phase 3 
-Cre
+Phase 3
+
